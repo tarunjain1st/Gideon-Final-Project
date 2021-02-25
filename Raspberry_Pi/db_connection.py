@@ -37,11 +37,12 @@ class dataLink:
         self.userId=userInfo.find_one({'api':self.api})['userId']
         return userInfo.find_one({'api':self.api})['userId']
 
-    def uploadDht(self,dht):
-        sensorData.update_one({'userId':self.userId},{'$set':{'dht':dht}})
+    def uploadDht(self,temp,hum):
+        sensorData.update_one({'userId':self.userId},{'$set':{'temp':temp}})
+        sensorData.update_one({'userId':self.userId},{'$set':{'humidity':hum}})
 
     def fetchDht(self):
-        return sensorData.find_one({'userId':self.userId})['dht']
+        return sensorData.find_one({'userId':self.userId})['temp'], sensorData.find_one({'userId':self.userId})['humidity']
 
     def uploadPir(self,pir):
         sensorData.update_one({'userId':self.userId},{'$set':{'pir':pir}})
