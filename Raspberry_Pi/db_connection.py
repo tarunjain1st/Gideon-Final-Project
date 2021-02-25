@@ -26,9 +26,9 @@ class dataLink:
                 speak.Speak(api)
                 count=0
             count+1
-        '''
+            '''
         if not sensorData.find_one({'userId':self.userId}):
-            sensorData.insert_one({'userId':dataLink.checkUser(self),'dht':0,'pir':0,'flame':0,'ldr':0,'mq2':0,'heart':0})
+            sensorData.insert_one({'userId':dataLink.checkUser(self),'temp':0.0,'humidity':0.0,'pir':0,'flame':0,'ldr':0,'mq2':0,'heart':0})
             actuatorData.insert_one({'userId':dataLink.checkUser(self),'motors':{'frontRight':0,'frontLeft':0,'backRight':0,'backLeft':0},'pump':0,'led':0})
 
     def checkUser(self):
