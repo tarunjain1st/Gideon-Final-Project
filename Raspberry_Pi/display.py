@@ -27,7 +27,7 @@ while True:
 	elif count==1:
 		lcd.clear()
 		lcd.message("Temperature: \n")
-        lcd.message(remote.fetchTemp())
+        lcd.message(remote.fetchDht())
 	elif count==2:
 		lcd.clear()
 		lcd.message("HeartBeat: \n")

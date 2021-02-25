@@ -41,7 +41,7 @@ class dataLink:
         sensorData.update_one({'userId':self.userId},{'$set':{'dht':dht}})
 
     def fetchDht(self):
-        return sensorData.find_one({'userId':self.userId})
+        return sensorData.find_one({'userId':self.userId}['dht'])
 
     def uploadPir(self,pir):
         sensorData.update_one({'userId':self.userId},{'$set':{'pir':pir}})
