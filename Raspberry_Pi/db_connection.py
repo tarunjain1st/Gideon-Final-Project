@@ -1,6 +1,6 @@
 from pymongo import MongoClient
-import win32com.client as win
-speak = win.Dispatch("SAPI.SpVoice")
+#import win32com.client as win
+#speak = win.Dispatch("SAPI.SpVoice")
 
 
 client = MongoClient("mongodb+srv://test:test@cluster0.glewd.mongodb.net/")
@@ -19,14 +19,14 @@ class dataLink:
         if dataLink.checkUser(self) == None:
             userInfo.insert_one({'name':self.name,'userId':self.userId,'userPass':self.userPass,'api':self.api})
 
-        while len(dataLink.checkUser(self)) == 0:
+        '''while len(dataLink.checkUser(self)) == 0:
             count=0
             if count<5000:
                 speak.Speak(" Please Update your Profile!")
                 speak.Speak(api)
                 count=0
             count+1
-
+        '''
         if not sensorData.find_one({'userId':self.userId}):
             sensorData.insert_one({'userId':dataLink.checkUser(self),'dht':0,'pir':0,'flame':0,'ldr':0,'mq2':0,'heart':0})
             actuatorData.insert_one({'userId':dataLink.checkUser(self),'motors':{'frontRight':0,'frontLeft':0,'backRight':0,'backLeft':0},'pump':0,'led':0})
@@ -39,6 +39,9 @@ class dataLink:
 
     def uploadDht(self,dht):
         sensorData.update_one({'userId':self.userId},{'$set':{'dht':dht}})
+
+    def fetchDht(self):
+        return sensorData.find_one({'userId':self.userId})
 
     def uploadPir(self,pir):
         sensorData.update_one({'userId':self.userId},{'$set':{'pir':pir}})
