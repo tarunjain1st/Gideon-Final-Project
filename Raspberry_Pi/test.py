@@ -8,5 +8,5 @@ DHT_PIN=4
 while True:
 	hum,temp=Adafruit_DHT.read(DHT_SENSOR,DHT_PIN)
 	if temp:
-		record.update_one({'userId':'helo'},{'$set':{'dht':temp}})
+		record.update_one({'userId':'helo'},{'$set':{'temp':temp}})
 		record.update_one({'userId':'helo'},{'$set':{'humidity':hum}})
