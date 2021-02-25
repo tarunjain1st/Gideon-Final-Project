@@ -27,17 +27,21 @@ while True:
 	elif count==1:
 		lcd.clear()
 		lcd.message("Temperature: \n")
-		lcd.message(str(remote.fetchDht())+'')
+		lcd.message(str(remote.fetchDht()[0])+'')
 	elif count==2:
 		lcd.clear()
-		lcd.message("HeartBeat: \n")
+		lcd.message("Humidity: \n")
+		lcd.message(str(remote.fetchDht()[1])+'')
 	elif count==3:
+		lcd.clear()
+		lcd.message("HeartBeat: \n")
+	elif count==4:
 		lcd.clear()
 		lcd.message("aarjav \n")
 	if button.value:
 		sleep(0.5)
 		print(count)
 		count+=1
-		if count>3:
+		if count>4:
 			count=0
 	sleep(0.1)
