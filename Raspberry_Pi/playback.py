@@ -12,7 +12,7 @@ print(song)
 
 song.download("temp."+song.extension)
 
-player = vlc.MediaPlayer("./temp.webm")
+player = vlc.MediaPlayer("./temp."+song.extension)
 while True:
     a=input("1.Play \n2.Pause \n3.Stop \n Enter Choice :")
     if a=='1':
