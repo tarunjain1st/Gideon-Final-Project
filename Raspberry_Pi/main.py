@@ -1,6 +1,8 @@
 from db_connection import dataLink
+from threading import Thread
+from webcam import streamVideo
+
 api='gideon_v2.0_259634'
 
-test = dataLink(api)
-test.uploadDht(23,80)
-print(test.fetchDht())
+if __name__ == "__main__":
+    Thread(target = streamVideo).start()
