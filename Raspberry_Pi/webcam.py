@@ -6,11 +6,12 @@ server_socket.listen(5)
 
 def streamVideo():
     while True:
-    	client_socket,addr = server_socket.accept()
-    	if client_socket:
-    		vid = cv2.VideoCapture(0)
-    		while(vid.isOpened()):
-    			img,frame = vid.read()
-    			a = pickle.dumps(frame)
-    			message = struct.pack("Q",len(a))+a
-    			client_socket.sendall(message)
+        client_socket,addr = server_socket.accept()
+        if client_socket:
+            vid = cv2.VideoCapture(0)
+            while(vid.isOpened()):
+                img,frame = vid.read()
+                frame = cv2.resize(frame,(320,240))
+                a = pickle.dumps(frame)
+                message = struct.pack("Q",len(a))+a
+                client_socket.sendall(message)
