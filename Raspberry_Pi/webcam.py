@@ -17,4 +17,4 @@ def streamVideo():
                     message = struct.pack("Q",len(a))+a
                     client_socket.sendall(message)
         except:
-            pass
+            break
