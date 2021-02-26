@@ -11,6 +11,7 @@ def streamVideo():
     		vid = cv2.VideoCapture(0)
     		while(vid.isOpened()):
     			img,frame = vid.read()
-    			a = pickle.dumps(frame)
+                frame = cv2.resize(image, (640, 480))
+                a = pickle.dumps(frame)
     			message = struct.pack("Q",len(a))+a
     			client_socket.sendall(message)
