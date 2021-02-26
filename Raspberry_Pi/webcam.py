@@ -7,12 +7,10 @@ server_socket.listen(5)
 def streamVideo():
     while True:
     	client_socket,addr = server_socket.accept()
-        try client_socket:
+    	if client_socket:
     		vid = cv2.VideoCapture(0)
     		while(vid.isOpened()):
     			img,frame = vid.read()
     			a = pickle.dumps(frame)
     			message = struct.pack("Q",len(a))+a
     			client_socket.sendall(message)
-        except ConnectionResetError:
-            break
