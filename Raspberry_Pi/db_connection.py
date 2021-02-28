@@ -2,8 +2,11 @@ from pymongo import MongoClient
 #import win32com.client as win
 #speak = win.Dispatch("SAPI.SpVoice")
 
+db_user = ''
+db_pass = ''
 
-client = MongoClient("mongodb+srv://test:test@cluster0.glewd.mongodb.net/")
+client = MongoClient("mongodb+srv://{}:{}@cluster0.glewd.mongodb.net/".format(db_user,db_pass))
+
 db = client.get_database('demo_db')
 userInfo = db.user_info
 sensorData = db.sensor_data
