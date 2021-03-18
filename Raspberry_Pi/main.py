@@ -9,6 +9,7 @@ db = dataLink(api)
 
 def upLink():
     while True:
+        print(getDht())
         hum,temp = getDht()
         cpu = psutil.cpu_percent()
         r_memory = psutil.virtual_memory()
