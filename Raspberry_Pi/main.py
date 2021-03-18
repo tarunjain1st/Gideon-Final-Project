@@ -19,7 +19,7 @@ def upLink():
         d_memory = psutil.disk_usage('/')
         disk = round(d_memory.free/1024.0/1024.0/1024.0,1)
 
-        if dht not None:
+        if dht:
             db.updateHumidity(hum)
             db.updateTemperature(temp)
         db.updateCpu(cpu)
