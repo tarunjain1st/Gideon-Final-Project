@@ -6,4 +6,4 @@ def getDht():
 	if temp and hum:
 		return hum,temp
 	else:
-		getDht()
+		return (0,0)
