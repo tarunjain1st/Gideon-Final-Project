@@ -10,7 +10,6 @@ db = dataLink(api)
 def upLink():
     while True:
         dht = getDht()
-        print(dht)
         hum = dht[0]
         temp = dht[1]
         cpu = psutil.cpu_percent()
@@ -19,7 +18,7 @@ def upLink():
         d_memory = psutil.disk_usage('/')
         disk = round(d_memory.free/1024.0/1024.0/1024.0,1)
 
-        if dht:
+        if dht != None:
             db.updateHumidity(hum)
             db.updateTemperature(temp)
         db.updateCpu(cpu)
