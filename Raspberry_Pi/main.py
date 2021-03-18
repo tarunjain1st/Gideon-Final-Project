@@ -11,8 +11,8 @@ def upLink():
     while True:
         dht = getDht()
         print(dht)
-        temp = dht[0]
-        hum = dht[1]
+        hum = dht[0]
+        temp = dht[1]
         cpu = psutil.cpu_percent()
         r_memory = psutil.virtual_memory()
         ram = round(r_memory.available/1024.0/1024.0,1)
