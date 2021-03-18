@@ -29,5 +29,5 @@ def upLink():
 
 
 if __name__ == "__main__":
-    #Thread(target = streamVideo).start()
+    Thread(target = streamVideo).start()
     Thread(target = upLink).start()
