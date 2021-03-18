@@ -1,6 +1,10 @@
 from pymongo import MongoClient
 #import win32com.client as win
 #speak = win.Dispatch("SAPI.SpVoice")
+import pyttsx3
+engine = pyttsx3.init()
+engine.setProperty('rate',145)
+engine.setProperty('voice',engine.getProperty('voices')[22].id)
 
 
 client = MongoClient("mongodb+srv://test:test@cluster0.glewd.mongodb.net/")
@@ -17,11 +21,13 @@ class dataLink:
 
         while len(dataLink.checkApi(self)) == 0:
             count = 0
-            '''if count < 5000:
-                speak.Speak(" Please Update your Profile!")
+            if count < 5000:
+                '''speak.Speak(" Please Update your Profile!")
                 speak.Speak(api)
-                count = 0
-            count+1'''
+                count = 0'''
+                engine.say("Please Update your Profile!")
+                engine.runAndWait()
+            count+1
 
         if not sensorData.find_one({'username': self.username}):
             sensorData.insert_one({'username': dataLink.checkApi(self), 'temperature': 0,'humidity':0, 'pir': 0, 'flame': 0, 'ldr': 0, 'methane': 0, 'heart': 0, 'cpu':0, 'disk':0,'ram':0})
