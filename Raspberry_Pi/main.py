@@ -10,6 +10,7 @@ db = dataLink(api)
 def upLink():
     while True:
         dht = getDht()
+        print(dht)
         print(dht['temp'])
         print(dht['hum'])
 
