@@ -7,4 +7,5 @@ def getDht():
 	if temp not None and hum not None:
 		data['temp']=temp
 		data['hum']=hum
+		print(data)
 		return data
