@@ -4,4 +4,6 @@ DHT_PIN=4
 def getDht():
 	hum,temp=Adafruit_DHT.read(DHT_SENSOR,DHT_PIN)
 	if temp and hum:
+		print(temp)
+		print(hum)
 		return hum,temp
