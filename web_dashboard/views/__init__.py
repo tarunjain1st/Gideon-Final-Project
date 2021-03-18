@@ -1,5 +1,5 @@
 import random
-from flask import render_template, request, redirect, url_for, session, jsonify
+from flask import render_template, request, redirect, url_for, session, jsonify, Response
 from app import app
 from model import *
 from pymongo import MongoClient
@@ -87,3 +87,8 @@ def profile():
 @app.route('/sensorsData', methods=["GET", "POST"])
 def checkData():
     return jsonify(sensorsData())
+
+
+@app.route('/webcam')
+def video_feed():
+    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')

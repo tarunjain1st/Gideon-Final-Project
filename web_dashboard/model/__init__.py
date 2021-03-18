@@ -5,6 +5,10 @@ from helpers.hashpass import *
 from helpers.mailer import *
 from bson import json_util, ObjectId
 import json
+import cv2
+import subprocess
+
+subprocess.Popen("python cam_recv.py")
 
 
 def checkloginusername():
@@ -64,3 +68,15 @@ def updateApi():
     api = request.form["api"]
     userInfo.update_one({'username': session["username"]}, {
         '$set': {'api': api}})
+
+
+def gen_frames():
+    while True:
+        frame = cv2.imread('temp.jpg')
+        try:
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
+        except:
+            pass
