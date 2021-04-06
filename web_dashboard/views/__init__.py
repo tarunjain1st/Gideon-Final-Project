@@ -1,6 +1,9 @@
 import random
 from flask import render_template, request, redirect, url_for, session, jsonify, Response
 from app import app
+from time import time
+from random import random
+import json
 from model import *
 from helpers.database import *
 
@@ -81,6 +84,11 @@ def profile():
 @app.route('/sensorsData', methods=["GET", "POST"])
 def checkData():
     return jsonify(sensorsData())
+
+@app.route('/data', methods=["GET", "POST"])
+def data():
+    data = [time() * 1000, random() * 100]
+    return jsonify(data)
 
 
 @app.route('/webcam')

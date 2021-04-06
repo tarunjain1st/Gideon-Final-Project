@@ -15,6 +15,6 @@ data.done(function (resp){
         hideHover: 'auto',
         lineColors: ['#20aee3', '#24d2b5', '#6772e5'],
         resize: true
-        
+
         });
 })
