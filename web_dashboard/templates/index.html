@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/css/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="static/vendor/jquery/jquery.min.js"></script>
     <script src="static/vendor/raphael-2.1.4.min.js"></script>
     <script src="static/vendor/morris.min.js"></script>
@@ -13,18 +15,68 @@
 
 </head>
   <body>
-    <div>
-      <a href="/profile">Update api</a>
-      <div id="temperature-gauge"></div>
-      <div id="humidity-gauge"></div>
-      <div id="disk-gauge"></div>
-      <div id="ram-gauge"></div>
-      <div id="cpu-gauge"></div>
-      <div id="methane-gauge"></div>
-      <div id="x" ></div>
-    
+    <input type="checkbox" id="check">
+    <!--header start -->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Gideon <span>Desk</span> </h3>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn">Logout</a>
+      </div>
+    </header>
+    <!--header end -->
+
+    <!--Sidebar start -->
+    <div class="sidebar">
+      <center>
+        <img src="https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg" class="profile_image" alt="">
+        <h4>Jessica</h4>
+      </center>
+      <a href="/"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="/profile"><i class="fas fa-cog"></i><span>Profile</span></a>
+      <a href="#"><i class="fas fa-table"></i><span>Tables</span></a>
+      <a href="#"><i class="fas fa-th"></i><span>Forms</span></a>
+      <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="/logout"><i class="fas fa-sliders-h"></i><span>Logout</span></a>
+    </div>
+    <!--Sidebar end -->
+
+    <div class="content" style="padding-top:100px">
+      <table style="width:100%">
+        <tr>
+          <td>
+            <div id="cpu-gauge"></div>
+          </td>
+          <td>
+            <div id="x"></div>
+          </td>
+        </tr>
+        <tr>
+          <td width="20%">
+            <div id="temperature-gauge"></div>
+          </td>
+          <td width="20%">
+            <div id="humidity-gauge"></div>
+          </td>
+          <td width="20%">
+            <div id="disk-gauge"></div>
+          </td>
+          <td width="20%">
+            <div id="ram-gauge"></div>
+          </td>
+          <td width="20%">
+            <div id="methane-gauge"></div>
+          </td>
+        </tr>
+      </table>
+
       <!-- <div class="" id="dht11-chart"></div>  -->
     </div>
+
     <script src="static/js/methane.js"></script>
     <script src="static/js/cpu.js"></script>
     <script src="static/js/temperature.js"></script>
@@ -32,6 +84,7 @@
     <script src="static/js/disk.js"></script>
     <script src="static/js/ram.js"></script>
     <script src="static/js/webcam.js"></script>
+
 
     <!--  <script src="static/js/chart.js"></script>   -->
   </body>

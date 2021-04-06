@@ -66,12 +66,18 @@ def sensorsData():
 
 def updateApi():
     api = request.form["api"]
-    userInfo.update_one({'username': session["username"]}, {
-        '$set': {'api': api}})
+    profile_image = request.files["profile_image"]
+    if profile_image:
+        file_id = fs.put(profile_image, filename="username")
+        userInfo.update_one({'username': session["username"]}, {'$set': {'api': api,'profile_image_id': file_id}})
+        ''''with open("test.jpg", "wb") as img:
+            img.write(fs.get(userInfo.find_one({'username':session["username"]})["profile_image_id"]).read())
+'''
 
 
 def gen_frames():
     while True:
+        pass
         frame = cv2.imread('temp.jpg')
         try:
             ret, buffer = cv2.imencode('.jpg', frame)

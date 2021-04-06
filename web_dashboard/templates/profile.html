@@ -11,19 +11,16 @@
   </head>
   <body>
     <div>
-      <form action="/profile" method="POST">
+      <form action="/profile" method="POST" enctype="multipart/form-data">
         <label for="api" class="form-label">API</label>
-        <input type="text" class="form-control" id="api" name="api" aria-describedby="emailHelp">
+        <input type="text" class="text-field" id="api" name="api">
+        <br>
+        <label for="profile_image" class="form-label">Profile Image</label>
+        <input type="file" class="img-field" id="profile_image" name="profile_image">
+        <br>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <!-- <div class="" id="dht11-chart"></div>  -->
     </div>
-   <!-- <script src="static/js/methane.js"></script>
-    <script src="static/js/temperature.js"></script>
-    <script src="static/js/humidity.js"></script>
-    <script src="static/js/disk.js"></script>
-    <script src="static/js/ram.js"></script>
-    <script src="static/js/chart.js"></script>
-   -->
+    <h3>{{data}}</h3>
   </body>
 </html>

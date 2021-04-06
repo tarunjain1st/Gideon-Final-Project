@@ -81,7 +81,7 @@ def profile():
         else:
             updateApi()
             return redirect(url_for("home"))
-    return render_template("profile.html")
+    return render_template("profile.html",data="hello")
 
 
 @app.route('/sensorsData', methods=["GET", "POST"])
