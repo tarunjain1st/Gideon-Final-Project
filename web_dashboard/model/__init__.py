@@ -68,9 +68,14 @@ def sensorsData():
 def updateApi():
     api = request.form["api"]
     profile_image = request.files["profile_image"]
-    if profile_image:
-        file_id = fs.put(profile_image, filename="username")
+    file_id = fs.put(profile_image, filename="username")
+
+    if profile_image and len(api)>0:
         userInfo.update_one({'username': session["username"]}, {'$set': {'api': api,'profile_image_id': file_id}})
+    elif len(api)>0:
+        userInfo.update_one({'username': session["username"]}, {'$set': {'api': api}})
+    elif profile_image:
+        userInfo.update_one({'username': session["username"]}, {'$set': {'profile_image_id': file_id}})
 
 def get_img():
     try:
