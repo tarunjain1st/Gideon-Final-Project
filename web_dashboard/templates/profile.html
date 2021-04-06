@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link href="static/css/morris.css" rel="stylesheet">
-    <script src="static/vendor/jquery/jquery.min.js"></script>
-    <script src="static/vendor/raphael-2.1.4.min.js"></script>
-    <script src="static/vendor/morris.min.js"></script>
-    <script src="static/vendor/justgage.js"></script>
-    <title>Demo</title>
-  </head>
-  <body>
-    <div>
-      <form action="/profile" method="POST" enctype="multipart/form-data">
-        <label for="api" class="form-label">API</label>
-        <input type="text" class="text-field" id="api" name="api">
-        <br>
-        <label for="profile_image" class="form-label">Profile Image</label>
-        <input type="file" class="img-field" id="profile_image" name="profile_image">
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-    <h3>{{data}}</h3>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+{% block user %} {{user}} {% endblock %}
+{% block content %}
+<div class="profile-row">
+<form action="/profile" method="POST" enctype="multipart/form-data">
+  <label for="api" class="form-label">API</label>
+  <input type="text" class="text-field" id="api" name="api">
+  <label for="profile_image" class="form-label">Profile Image</label>
+  <input type="file" class="img-field" id="profile_image" name="profile_image">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock %}

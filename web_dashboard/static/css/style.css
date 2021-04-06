@@ -120,9 +120,33 @@ label #sidebar_btn:hover{
 }
 
 .content{
-  padding-top: 30px;
   margin-left: 250px;
   transition: 0.5s;
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.row1{
+  padding: 100px 30px 60px 30px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+
+}
+
+.row2{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  padding: 60px 10px 0px 10px;
+  grid-gap: 20px;
+}
+
+.error-row{
+  padding: 100px 30px 60px 30px;
+  text-align:center;
+}
+
+.profile-row{
+  padding: 100px 30px 60px 30px;
 }
 
 #check:checked ~ .content{

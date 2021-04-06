@@ -7,6 +7,7 @@ from bson import json_util, ObjectId
 import json
 import cv2
 import subprocess
+import requests
 
 subprocess.Popen("python cam_recv.py")
 
@@ -70,10 +71,16 @@ def updateApi():
     if profile_image:
         file_id = fs.put(profile_image, filename="username")
         userInfo.update_one({'username': session["username"]}, {'$set': {'api': api,'profile_image_id': file_id}})
-        ''''with open("test.jpg", "wb") as img:
-            img.write(fs.get(userInfo.find_one({'username':session["username"]})["profile_image_id"]).read())
-'''
 
+def get_img():
+    try:
+        img_id = userInfo.find_one({'username':session["username"]})["profile_image_id"]
+        with open("static/img/avatar.jpg", "wb") as img:
+            img.write(fs.get(img_id).read())
+    except:
+        img_data = requests.get("https://lh3.googleusercontent.com/proxy/jmfpIwPJ-DeCuNmcR0JqYV0f5AqGRzDwxS2X3LFD1y_7nxm6OQl_02dBmJUFnpZWWEMuoqJwBGsTfwegbs8sN4Y9tD6eLGN5GoL4mgA5tDbPqI2W3HfqBbo").content
+        with open('static/img/avatar.jpg', 'wb') as handler:
+            handler.write(img_data)
 
 def gen_frames():
     while True:
