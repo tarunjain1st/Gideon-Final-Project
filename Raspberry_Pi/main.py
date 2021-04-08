@@ -34,4 +34,4 @@ if __name__ == "__main__":
     Thread(target = streamVideo).start()
     Thread(target = arudino_cam).start()
     Thread(target = upLink).start()
-    Thread(target = prabhoo).start()
+    #Thread(target = prabhoo).start()
