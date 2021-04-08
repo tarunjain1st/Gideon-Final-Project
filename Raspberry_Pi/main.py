@@ -2,6 +2,7 @@ from db_connection import dataLink
 from threading import Thread
 from arduino_com import arudino_connect
 from webcam import streamVideo
+from voice_module import prabhoo
 from dht11 import getDht
 import psutil,time
 api='gideon_v2.0_259634'
@@ -33,3 +34,4 @@ if __name__ == "__main__":
     Thread(target = arudino_connect).start()
     Thread(target = streamVideo).start()
     Thread(target = upLink).start()
+    Thread(target = prabhoo).start()
