@@ -85,11 +85,18 @@ def profile():
 def checkData():
     return jsonify(sensorsData())
 
+@app.route('/help')
+def help():
+    return render_template("help.html",user=userInfo.find_one({'username':session["username"]})["name"])
+
+@app.route('/team')
+def team():
+    return render_template("team.html",user=userInfo.find_one({'username':session["username"]})["name"])
+
 @app.route('/data', methods=["GET", "POST"])
 def data():
     data = [time() * 1000, random() * 100]
     return jsonify(data)
-
 
 @app.route('/webcam')
 def video_feed():

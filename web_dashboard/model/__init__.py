@@ -83,10 +83,12 @@ def get_img():
         with open("static/img/avatar.jpg", "wb") as img:
             img.write(fs.get(img_id).read())
     except:
-        img_data = requests.get("https://lh3.googleusercontent.com/proxy/jmfpIwPJ-DeCuNmcR0JqYV0f5AqGRzDwxS2X3LFD1y_7nxm6OQl_02dBmJUFnpZWWEMuoqJwBGsTfwegbs8sN4Y9tD6eLGN5GoL4mgA5tDbPqI2W3HfqBbo").content
+        print("hello")
+        img_data = requests.get("https://www.w3schools.com/howto/img_avatar.png").content
+        print("test")
         with open('static/img/avatar.jpg', 'wb') as handler:
             handler.write(img_data)
-
+        print("dara ")
 def gen_frames():
     while True:
         pass

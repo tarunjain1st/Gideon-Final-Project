@@ -4,16 +4,37 @@
 {% block user %} {{user}} {% endblock %}
 
 {% block content %}
+
 <div class="row1">
-  <div id="sales-chart" style="height: 355px"></div>
-  <div class="cam" id="cam"></div>
+  <div class="wrapper-content">
+    <p>CPU - Chart </p>
+    <div id="sales-chart" style="height: 280px"></div>
+  </div>
+  <div class="wrapper-content">
+    <div class="cam" id="cam"></div>
+    <div class="msg" id="msg">To see Wecam enable Checkbox</div>
+    <label for="cam-check">
+      <i class="far fa-check-square" id="cam_btn" class="cam_btn"></i>
+    </label>
+    <input type="checkbox" id="cam-check" onclick="togle()">
+  </div>
 </div>
 <div class="row2">
-  <div id="temperature-gauge"></div>
-  <div id="humidity-gauge"></div>
-  <div id="disk-gauge"></div>
-  <div id="ram-gauge"></div>
-  <div id="methane-gauge"></div>
+  <div class="wrapper-content">
+    <div id="temperature-gauge"></div>
+  </div>
+  <div class="wrapper-content">
+    <div id="humidity-gauge"></div>
+  </div>
+  <div class="wrapper-content">
+    <div id="disk-gauge"></div>
+  </div>
+  <div class="wrapper-content">
+    <div id="ram-gauge"></div>
+  </div>
+  <div class="wrapper-content">
+    <div id="methane-gauge"></div>
+  </div>
 </div>
 
 {% endblock %}

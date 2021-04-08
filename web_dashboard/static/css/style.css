@@ -101,9 +101,52 @@ label #sidebar_btn{
   transition: 0.5s;
   transition-property: color;
 }
+
 label #sidebar_btn:hover{
   color: #19B3D3;
 }
+
+
+.content{
+  margin-left: 250px;
+  transition: 0.5s;
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.row1{
+  margin: 10px;
+  padding: 100px 5px 40px 10px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 10px;
+
+}
+
+.row2{
+  margin: 10px;
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+.wrapper{
+  padding: 100px 30px 60px 30px;
+  text-align:center;
+}
+.wrapper-content{
+  text-align: center;
+  padding: 5px;
+  background: #fff;
+  border: #7d0c6c 1px solid;
+  border-radius: 5px;
+}
+
+.profile-row{
+  padding: 100px 30px 60px 30px;
+}
+
 
 #check:checked ~ .sidebar{
   left: -190px;
@@ -119,40 +162,33 @@ label #sidebar_btn:hover{
   width: 80px;
 }
 
-.content{
-  margin-left: 250px;
-  transition: 0.5s;
-  display: grid;
-  grid-template-rows: 50% 50%;
-}
-
-.row1{
-  padding: 100px 30px 50px 30px;
-  display: grid;
-  grid-template-columns: 70% 30%;
-
-}
-
-.row2{
-  display: grid;
-  grid-template-columns: repeat(5,1fr);
-  padding: 50px 10px 0px 10px;
-  grid-gap: 20px;
-}
-
-.error-row{
-  padding: 100px 30px 60px 30px;
-  text-align:center;
-}
-
-.profile-row{
-  padding: 100px 30px 60px 30px;
-}
-
 #check:checked ~ .content{
   margin-left: 60px;
 }
 
 #check{
   display: none;
+}
+
+#cam-check{
+  display: none;
+}
+
+label #cam_btn{
+  z-index: 1;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 5px 0;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+label #cam_btn:hover{
+  color: #19B3D3;
+}
+
+.msg{
+  width:350px;
+  height:280px;
+  text-align: center;
 }
