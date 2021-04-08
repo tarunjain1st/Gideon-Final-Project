@@ -88,4 +88,4 @@ def arudino_cam():
     camera.close()
 
 def arudino_data():
-    return random.randint()
+    return random.randint(0,10)

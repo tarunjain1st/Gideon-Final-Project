@@ -7,4 +7,4 @@ def getDht():
 	if temp and hum:
 		return hum,temp
 	else:
-		return (random.randint(),random.randint())
+		return (random.randint(1,10),random.randint())
