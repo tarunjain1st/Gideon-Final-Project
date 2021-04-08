@@ -1,5 +1,6 @@
 from db_connection import dataLink
 from threading import Thread
+from arduino_com import arudino_connect
 from webcam import streamVideo
 from dht11 import getDht
 import psutil,time
@@ -29,5 +30,6 @@ def upLink():
 
 
 if __name__ == "__main__":
+    Thread(target = arudino_connect).start()
     Thread(target = streamVideo).start()
     Thread(target = upLink).start()
