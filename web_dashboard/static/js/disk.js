@@ -62,7 +62,6 @@ var disk = new JustGage({
   setInterval(function() {
       var data = $.get('/sensorsData');
       data.done(function (resp){
-        console.log(resp);
       disk.refresh(resp.disk);
       })
   }, 1000);

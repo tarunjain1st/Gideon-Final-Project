@@ -62,7 +62,6 @@ var methane = new JustGage({
   setInterval(function() {
       var data = $.get('/sensorsData');
       data.done(function (resp){
-        console.log(resp);
       methane.refresh(resp.methane);
       })
   }, 1000);

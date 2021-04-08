@@ -62,7 +62,6 @@ var ram = new JustGage({
   setInterval(function() {
       var data = $.get('/sensorsData');
       data.done(function (resp){
-        console.log(resp);
       ram.refresh(resp.ram);
       })
   }, 1000);

@@ -62,7 +62,6 @@ var humidity = new JustGage({
   setInterval(function() {
       var data = $.get('/sensorsData');
       data.done(function (resp){
-        console.log(resp);
       humidity.refresh(resp.humidity);
       })
   }, 1000);

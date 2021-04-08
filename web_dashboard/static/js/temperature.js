@@ -62,7 +62,6 @@ var temp = new JustGage({
   setInterval(function() {
       var data = $.get('/sensorsData');
       data.done(function (resp){
-        console.log(resp);
       temp.refresh(resp.temperature);
       })
   }, 1000);

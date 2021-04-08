@@ -143,6 +143,10 @@ label #sidebar_btn:hover{
   border-radius: 5px;
 }
 
+.cards{
+  
+}
+
 .profile-row{
   padding: 100px 30px 60px 30px;
 }
@@ -172,6 +176,11 @@ label #sidebar_btn:hover{
 
 #cam-check{
   display: none;
+}
+
+.cam{
+  transition: 0.5s;
+  transition-property: color;
 }
 
 label #cam_btn{

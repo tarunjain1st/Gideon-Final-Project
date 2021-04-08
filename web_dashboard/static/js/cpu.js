@@ -1,68 +1,53 @@
-var cpu = new JustGage({
-    id: "cpu-gauge",
-    value: 0,
-    min: 0,
-    max: 100,
-    gaugeWidthScale: 0.7,
-	  symbol: '%',
-    pointer: true,
-    pointerOptions: {
-          toplength: -15,
-          bottomlength: 10,
-          bottomwidth: 12,
-          color: '#8e8e93',
-          stroke: '#ffffff',
-          stroke_width: 3,
-          stroke_linecap: 'round'
-        },
-    customSectors: [{
-        color : "#9FE2BF",
-        lo : 0,
-        hi : 10
-      },{
-        color : "#40E0D0",
-        lo : 10,
-        hi : 20
-      },{
-        color : "#6495ED",
-        lo : 20,
-        hi : 30
-      },{
-        color : "#CCCCFF",
-        lo : 30,
-        hi : 40
-      },{
-        color : "#DFFF00",
-        lo : 40,
-        hi : 50
-      },{
-        color : "#FFBF00",
-        lo : 50,
-        hi : 60
-      },{
-        color : "#FF7F50",
-        lo : 60,
-        hi : 70
-      },{
-        color : "#DE3163",
-        lo : 70,
-        hi : 80
-      },{
-        color : "#DC7633",
-        lo : 80,
-        hi : 90
-      },{
-        color : "#C0392B",
-        lo : 90,
-        hi : 100
-      }],
-    title: "CPU"
-  });
+var chart;
 
-  setInterval(function() {
-      var data = $.get('/sensorsData');
-      data.done(function (resp){
-        console.log(resp);
-      cpu.refresh(resp.cpu);
-      })
-  }, 1000);
+function requestData()
+{
+    // Ajax call to get the Data from Flask
+    var requests = $.get('/cpu');
+
+
+    var tm = requests.done(function (result)
+    {
+        var series = chart.series[0],
+            shift = series.data.length > 20;
+
+        // add the point
+        chart.series[0].addPoint(result, true, shift);
+
+        // call it again after one second
+        setTimeout(requestData, 1000);
+    });
+}
+
+$(document).ready(function() {
+    chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            defaultSeriesType: 'spline',
+            events: {
+                load: requestData
+            }
+        },
+        title: {
+            text: 'CPU Usage'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            maxZoom: 20 * 1000
+        },
+        yAxis: {
+            minPadding: 0.2,
+            maxPadding: 0.2,
+            title: {
+                text: 'Clock Speed (GHz)',
+                margin: 30
+            }
+        },
+        series: [{
+            name: 'Time (s)',
+            data: []
+        }]
+    });
+
+});

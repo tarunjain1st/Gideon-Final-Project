@@ -1,7 +1,7 @@
 import random
 from flask import render_template, request, redirect, url_for, session, jsonify, Response
 from app import app
-from time import time
+import time
 from random import random
 import json
 from model import *
@@ -10,8 +10,11 @@ from helpers.database import *
 @app.route('/', methods=["GET"])
 def home():
     if "username" in session:
-        get_img()
-        return render_template('index.html',user=userInfo.find_one({'username':session["username"]})["name"])
+        if sensorData.find_one({'username': session["username"]}):
+            get_img()
+            return render_template('index.html',user=userInfo.find_one({'username':session["username"]})["name"])
+        else:
+            return render_template('profile.html',user=userInfo.find_one({'username':session["username"]})["name"])
     else:
         return render_template('login.html')
 
@@ -49,7 +52,7 @@ def checkUserpassword():
     return checkloginpassword()
 
 # The admin logout
-@app.route('/logout', methods=["GET"])  # URL for logout
+@app.route('/logout')  # URL for logout
 def logout():  # logout function
     session.pop('username', None)  # remove user session
     return redirect(url_for("home"))  # redirect to home page with message
@@ -81,7 +84,7 @@ def profile():
     return render_template("profile.html",user=userInfo.find_one({'username':session["username"]})["name"])
 
 
-@app.route('/sensorsData', methods=["GET", "POST"])
+@app.route('/sensorsData')
 def checkData():
     return jsonify(sensorsData())
 
@@ -93,9 +96,10 @@ def help():
 def team():
     return render_template("team.html",user=userInfo.find_one({'username':session["username"]})["name"])
 
-@app.route('/data', methods=["GET", "POST"])
+@app.route('/cpu')
 def data():
-    data = [time() * 1000, random() * 100]
+    cpu = sensorData.find_one({'username': session["username"]})["cpu"]
+    data = [time.time()*1000, cpu]
     return jsonify(data)
 
 @app.route('/webcam')
