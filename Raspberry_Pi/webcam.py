@@ -9,7 +9,7 @@ def streamVideo():
         client_socket,addr = server_socket.accept()
         try:
             if client_socket:
-                vid = cv2.VideoCapture(1)
+                vid = cv2.VideoCapture(0)
                 while(vid.isOpened()):
                     img,frame = vid.read()
                     frame = cv2.resize(frame,(320,240))

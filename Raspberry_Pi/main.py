@@ -26,7 +26,9 @@ def upLink():
         db.updateCpu(cpu)
         db.updateRam(ram)
         db.updateDisk(disk)
-        db.updateMethane(arduino_data())
+        a=arduino_data()
+        print(a)
+        db.updateMethane(a)
 
         time.sleep(1)
 
