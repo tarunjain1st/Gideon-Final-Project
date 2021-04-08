@@ -91,4 +91,4 @@ def arudino_data():
     data=serial_obj.readline()
     str_rn = data.decode()
     str = str_rn.rstrip()
-    return float(str)
+    return str
