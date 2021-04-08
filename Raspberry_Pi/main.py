@@ -27,7 +27,7 @@ def upLink():
         db.updateRam(ram)
         db.updateDisk(disk)
         meth = arudino_data()
-        if meth not 0:
+        if meth != 0:
             db.updateMethane(arudino_data())
 
 if __name__ == "__main__":
