@@ -6,6 +6,7 @@ import numpy as np
 import imutils
 import cv2 as cv
 import serial
+import random
 
 windowCenter = 320
 centerBuffer = 10
@@ -30,7 +31,7 @@ time.sleep(0.1)
 lower_yellow = np.array([17, 98, 66])
 upper_yellow = np.array([72, 255, 255])
 
-def arudino_connect():
+def arudino_cam():
     for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
 
     	image = frame.array
@@ -85,3 +86,6 @@ def arudino_connect():
 
     cv2.destroyAllWindows()
     camera.close()
+
+def arudino_data():
+    return random.randint()
