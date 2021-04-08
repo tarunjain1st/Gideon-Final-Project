@@ -89,6 +89,8 @@ def arudino_cam():
 
 def arudino_data():
     data=serial_obj.readline()
-    str_rn = data.decode()
-    str = str_rn.rstrip()
+    if data:
+        str_rn = data.decode()
+        str = str_rn.rstrip()
+        return str
     return str

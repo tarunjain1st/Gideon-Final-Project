@@ -18,43 +18,43 @@ var methane = new JustGage({
     customSectors: [{
         color : "#9FE2BF",
         lo : 0,
-        hi : 10
+        hi : 100
       },{
         color : "#40E0D0",
-        lo : 10,
-        hi : 20
+        lo : 100,
+        hi : 200
       },{
         color : "#6495ED",
-        lo : 20,
-        hi : 30
+        lo : 200,
+        hi : 300
       },{
         color : "#CCCCFF",
-        lo : 30,
-        hi : 40
+        lo : 300,
+        hi : 400
       },{
         color : "#DFFF00",
-        lo : 40,
-        hi : 50
+        lo : 400,
+        hi : 500
       },{
         color : "#FFBF00",
-        lo : 50,
-        hi : 60
+        lo : 500,
+        hi : 600
       },{
         color : "#FF7F50",
-        lo : 60,
-        hi : 70
+        lo : 600,
+        hi : 700
       },{
         color : "#DE3163",
-        lo : 70,
-        hi : 80
+        lo : 700,
+        hi : 800
       },{
         color : "#DC7633",
-        lo : 80,
-        hi : 90
+        lo : 800,
+        hi : 900
       },{
         color : "#C0392B",
-        lo : 90,
-        hi : 100
+        lo : 900,
+        hi : 1000
       }],
     title: "Methane"
   });
