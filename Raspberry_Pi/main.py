@@ -28,7 +28,7 @@ def upLink():
         db.updateDisk(disk)
         a=arduino_data()
         print(a)
-        db.updateMethane(a)
+        db.updateMethane(10)
 
         time.sleep(1)
 
