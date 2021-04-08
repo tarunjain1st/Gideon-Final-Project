@@ -2,7 +2,7 @@ var methane = new JustGage({
     id: "methane-gauge",
     value: 0,
     min: 0,
-    max: 100,
+    max: 1000,
     gaugeWidthScale: 0.7,
 	  symbol: ' PPM',
     pointer: true,
