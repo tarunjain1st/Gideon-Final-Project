@@ -26,9 +26,7 @@ def upLink():
         db.updateCpu(cpu)
         db.updateRam(ram)
         db.updateDisk(disk)
-        a=arudino_data()
-        db.updateMethane(a)
-
+        db.updateMethane(arudino_data())
         time.sleep(1)
 
 

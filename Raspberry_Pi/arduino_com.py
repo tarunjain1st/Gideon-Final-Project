@@ -88,4 +88,7 @@ def arudino_cam():
     camera.close()
 
 def arudino_data():
-    return random.randint(0,100)
+    data=serial_obj.readline()
+    str_rn = data.decode()
+    str = str_rn.rstrip()
+    return float(str)
