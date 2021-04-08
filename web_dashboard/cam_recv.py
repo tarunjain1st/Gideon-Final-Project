@@ -20,8 +20,8 @@ while True:
     frame_data = data[:msg_size]
     data = data[msg_size:]
     frame = pickle.loads(frame_data)
-    cv2.imshow("fdf",frame)
-    #cv2.imwrite('temp.jpg',frame)
+    #cv2.imshow("fdf",frame)
+    cv2.imwrite('temp.jpg',frame)
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
         break
