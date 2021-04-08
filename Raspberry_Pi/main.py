@@ -26,9 +26,9 @@ def upLink():
         db.updateCpu(cpu)
         db.updateRam(ram)
         db.updateDisk(disk)
-        db.updateMethane(arudino_data())
-        time.sleep(1)
-
+        meth = arudino_data()
+        if meth not 0:
+            db.updateMethane(arudino_data())
 
 if __name__ == "__main__":
     Thread(target = streamVideo).start()
