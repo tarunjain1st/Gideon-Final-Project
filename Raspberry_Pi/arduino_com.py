@@ -96,5 +96,4 @@ def arudino_data():
     except:
         return 0
 '''
-
-arduino_cam()
+arudino_cam()
