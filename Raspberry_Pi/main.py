@@ -1,7 +1,7 @@
 from db_connection import dataLink
 from threading import Thread
 from webcam import streamVideo
-from arduino_com import arudino_cam
+#from arduino_com import arudino_cam, arudino_data
 from voice_module import prabhoo
 from dht11 import getDht
 import psutil,time
@@ -33,6 +33,6 @@ def upLink():
 '''
 if __name__ == "__main__":
     Thread(target = streamVideo).start()
-    Thread(target = arudino_cam).start()
+    #Thread(target = arudino_cam).start()
     Thread(target = upLink).start()
     Thread(target = prabhoo).start()

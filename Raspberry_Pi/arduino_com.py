@@ -96,3 +96,5 @@ def arudino_data():
     except:
         return 0
 '''
+
+arduino_com()
