@@ -97,4 +97,4 @@ def arudino_data():
         return 0
 '''
 
-arduino_com()
+arduino_cam()
