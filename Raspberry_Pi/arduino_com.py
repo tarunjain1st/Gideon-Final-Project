@@ -96,4 +96,3 @@ def arudino_data():
     except:
         return 0
 '''
-arudino_cam()
