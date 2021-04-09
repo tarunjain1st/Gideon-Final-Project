@@ -86,7 +86,7 @@ def arudino_cam():
 
     cv2.destroyAllWindows()
     camera.close()
-
+'''
 def arudino_data():
     data=serial_obj.readline()
     try:
@@ -95,3 +95,4 @@ def arudino_data():
         return str
     except:
         return 0
+'''

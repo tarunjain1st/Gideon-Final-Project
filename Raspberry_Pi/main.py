@@ -1,7 +1,7 @@
 from db_connection import dataLink
 from threading import Thread
 from webcam import streamVideo
-from arduino_com import arudino_cam, arudino_data
+from arduino_com import arudino_cam
 from voice_module import prabhoo
 from dht11 import getDht
 import psutil,time
@@ -26,11 +26,11 @@ def upLink():
         db.updateCpu(cpu)
         db.updateRam(ram)
         db.updateDisk(disk)
-        meth = arudino_data()
+'''        meth = arudino_data()
         print(meth)
         if meth != 0:
             db.updateMethane(arudino_data())
-
+'''
 if __name__ == "__main__":
     Thread(target = streamVideo).start()
     Thread(target = arudino_cam).start()
