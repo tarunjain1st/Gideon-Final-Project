@@ -63,7 +63,7 @@ def arudino_cam():
     	if ballPixel == 0:
     		print ("no ball")
     		error =0
-    		serial_obj.write(b'0')
+    		serial_obj.write(b'4')
 
     	elif (ballPixel < leftBound) or (ballPixel > rightBound):
     		error = windowCenter - ballPixel
