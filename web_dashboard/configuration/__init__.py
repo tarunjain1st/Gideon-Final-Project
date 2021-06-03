@@ -14,7 +14,7 @@ app.config['MAIL_USE_SSL'] = False  # security type
 
 # database connection parameters
 connection_params = {
-    'user': 'test',
-    'password': 'test',
+    'user': '', #test
+    'password': '', #test
     'host': 'cluster0.glewd.mongodb.net',
 }
