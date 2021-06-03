@@ -7,8 +7,8 @@ mail = Mail(app)
 
 
 def sendmail(subject, sender, recipient, body, name):
-    EMAIL_ADDRESS = 'desk.gideon@gmail.com'
-    EMAIL_PASSWORD = 'tmuproject'
+    EMAIL_ADDRESS = ''  #email
+    EMAIL_PASSWORD = ''   #password
     msg = EmailMessage()
     msg['Subject'] = subject
     msg['From'] = sender
