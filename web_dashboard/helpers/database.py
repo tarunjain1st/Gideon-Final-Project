@@ -5,8 +5,7 @@ import configuration
 connection_params = configuration.connection_params
 
 # connect to mongodb
-client = MongoClient(
-    "mongodb+srv://{}:{}@cluster0.glewd.mongodb.net/".format('test', 'test'))
+client = MongoClient("")    #address
 
 db = client.get_database('demo_db')
 fs = gridfs.GridFS(db)
