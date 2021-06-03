@@ -12,6 +12,32 @@ header{
   height: 30px;
   z-index: 999;
 }
+.card-wrapper{
+  display: grid;
+  grid-column: 1fr;
+  grid-template-columns: repeat(3, 1fr) ;
+  grid-gap: 20px;
+}
+
+.card-items{
+  padding: 20px;
+  background: #FFFFFF;
+  border: 10px;
+}
+
+.card-items img{
+  height: 130px;
+  width: 130px;
+}
+
+.card-items h3{
+  color: #3FC0B6;
+}
+
+.card-items span{
+  color: #00ff00;
+}
+
 
 .left_area h3{
   color: #fff;
@@ -144,7 +170,7 @@ label #sidebar_btn:hover{
 }
 
 .cards{
-  
+
 }
 
 .profile-row{
