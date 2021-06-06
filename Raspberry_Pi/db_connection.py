@@ -7,7 +7,7 @@ engine.setProperty('rate',145)
 engine.setProperty('voice',engine.getProperty('voices')[22].id)
 
 
-client = MongoClient("mongodb+srv://test:test@cluster0.glewd.mongodb.net/")
+client = MongoClient("")
 db = client.get_database('demo_db')
 userInfo = db.user_info
 sensorData = db.sensor_data
